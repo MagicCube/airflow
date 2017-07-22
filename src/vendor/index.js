@@ -8,4 +8,5 @@ import 'redux-actions';
 import 'redux-promise';
 
 import 'normalize.css';
-import './res/font-awesome.less';
+
+import './font-awesome.less';
