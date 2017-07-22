@@ -1,0 +1,28 @@
+@import '../../../variables.less';
+
+.af-workspace-app-nav-list {
+  display: flex;
+  width: 100%;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    li {
+      cursor: pointer;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      font-size: @font-size-h3;
+      color: #adadad;
+
+      &.selected, &:hover {
+        color: white;
+      }
+    }
+  }
+}

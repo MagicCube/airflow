@@ -2,7 +2,7 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import { render } from 'react-dom';
 
-import Workspace from './components/Workspace';
+import Workspace from './workspace';
 
 import './index.html';
 import './index.less';
