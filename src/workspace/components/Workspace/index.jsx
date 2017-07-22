@@ -27,7 +27,7 @@ export default class Workspace extends Component {
     const { selectedAppId } = this.props;
     return (
       <div className="af-workspace">
-        <AppBar />
+        <AppBar appId={selectedAppId} />
         <div className="af-workspace-body">
           <aside className="af-workspace-side-bar">
             <AppNavList selectedId={selectedAppId} onSelectionChange={this.handleAppNavListSelectionChange} />

@@ -19,6 +19,11 @@ export function getApp(id) {
   }
 }
 
+export function getAppTitle(id) {
+  const app = apps[id];
+  return app.meta.title;
+}
+
 export function getAppMetaList() {
   return apps.map(app => app.meta);
 }
