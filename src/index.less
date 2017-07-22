@@ -1,0 +1,123 @@
+@import 'variables.less';
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  color: @text-color;
+  background-color: @body-bg;
+  font-family: @font-family-base;
+  line-height: @line-height-base;
+}
+
+a {
+  color: @link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: @link-hover-color;
+  }
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: @text-color;
+  background: @body-bg;
+  outline: none;
+  border: 1px solid @border-color;
+  padding-left: 5px;
+  padding-right: 5px;
+  transition: all .4s;
+
+  &:focus {
+    border-color: @text-color;
+  }
+}
+
+.h1,
+.h2,
+.h3,
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: @headings-font-weight;
+
+  .small,
+  small {
+    font-size: 65%;
+  }
+}
+
+.h4,
+.h5,
+.h6,
+h4,
+h5,
+h6 {
+  margin: 0;
+
+  .small,
+  small {
+    font-size: 75%;
+  }
+}
+
+.h1,
+h1 {
+  font-size: @font-size-h1;
+}
+
+.h2,
+h2 {
+  font-size: @font-size-h2;
+}
+
+.h3,
+h3 {
+  font-size: @font-size-h3;
+}
+
+.h4,
+h4 {
+  font-size: @font-size-h4;
+}
+
+.h5,
+h5 {
+  font-size: @font-size-h5;
+}
+
+.h6,
+h6 {
+  font-size: @font-size-h6;
+}
+
+p {
+  margin: 0 0 (@line-height-computed / 2);
+}
+
+[role='button'],
+button {
+  cursor: pointer;
+}
+
+#react-mount-point {
+  width: 100%;
+  height: 100%;
+}
