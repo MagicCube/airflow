@@ -1,17 +1,78 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+
+import { getAppMetaList } from '../../../apps';
 
 import './index.less';
 
+const apps = getAppMetaList();
+
 export default class AppNavList extends PureComponent {
+  static propTypes = {
+    items: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string,
+      title: PropTypes.string,
+      icon: PropTypes.icon
+    })),
+    selectedId: PropTypes.string,
+    onSelectionChange: PropTypes.func
+  }
+
+  static defaultProps = {
+    items: apps,
+    selectedId: null,
+    onSelectionChange: noop
+  }
+
+  state = {
+    selectedId: this.props.selectedId
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedId !== this.state.selectedId) {
+      this.setState({
+        selectedId: nextProps.selectedId
+      });
+    }
+  }
+
+  handleItemClick = (e) => {
+    const id = e.currentTarget.id;
+    this.setState({
+      selectedId: id
+    }, () => {
+      this.props.onSelectionChange({
+        id
+      });
+    });
+  }
+
   render() {
+    const { items } = this.props;
+    const { selectedId } = this.state;
     return (
       <nav className="af-workspace-app-nav-list">
         <ul>
-          <li title="发现"><i className="fa fa-eye" /></li>
-          <li title="媒体库"><i className="fa fa-film" /></li>
-          <li title="云下载"><i className="fa fa-cloud-download" /></li>
+          {
+            items.map(item => (
+              <li
+                key={item.id}
+                id={item.id}
+                className={selectedId === item.id ? 'selected' : null}
+                title={item.title}
+                onClick={this.handleItemClick}
+              >
+                <i className={item.icon} />
+              </li>
+            ))
+          }
         </ul>
       </nav>
     );
   }
+}
+
+
+function noop() {
+
 }
