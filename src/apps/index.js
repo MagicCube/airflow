@@ -1,14 +1,15 @@
-import React from 'react';
-
 import * as discovery from './discovery';
 import * as cloudDownloader from './cloud-downloader';
 import * as mediaLibrary from './media-library';
 
-export const apps = [discovery, cloudDownloader, mediaLibrary];
+const apps = [discovery, cloudDownloader, mediaLibrary];
 apps.forEach((app) => {
   app.id = app.meta.id;
+  app.Component = app.default;
+  delete app.default;
   apps[app.id] = app;
 });
+export default apps;
 
 export function getApp(id) {
   const app = apps[id];
@@ -37,22 +38,4 @@ export function getAppReducers() {
     }
     return reducers;
   }, {});
-}
-
-export function getAppComponent(id) {
-  const app = getApp(id);
-  if (app.default) {
-    return app.default;
-  } else {
-    return null;
-  }
-}
-
-export function getAppElement(id) {
-  const app = getApp(id);
-  if (!app.element) {
-    const Component = getAppComponent(id);
-    app.element = <Component />;
-  }
-  return app.element;
 }
