@@ -14,6 +14,7 @@ module.exports = {
     "class-methods-use-this": "off",
     "comma-dangle": "off",
     "global-require": "off",
+    "import/no-dynamic-require": "off",
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
