@@ -4,7 +4,7 @@ import meta from './meta';
 
 export default function (mapStateToProps, mapDispatchToProps) {
   return connect(
-    state => mapStateToProps(state[meta.id], state),
+    state => mapStateToProps({ ...state[meta.id], router: state.router }, state),
     mapDispatchToProps
   );
 }
