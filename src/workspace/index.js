@@ -6,7 +6,7 @@ import combinedReducer from './reducers';
 import Workspace from './components/Workspace';
 
 export default connect(
-  state => ({ ...state.workspace }),
+  state => ({ ...state.workspace, router: state.router }),
   dispatch => ({ actions: bindActionCreators(actions, dispatch) })
 )(Workspace);
 
