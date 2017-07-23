@@ -12,6 +12,7 @@ export default class App extends PureComponent {
 
 export const meta = {
   id: 'mediaLibrary',
+  path: 'media-library',
   title: '媒体库',
   icon: 'fa fa-film'
 };

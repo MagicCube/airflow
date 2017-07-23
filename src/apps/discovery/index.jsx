@@ -12,6 +12,7 @@ export default class App extends PureComponent {
 
 export const meta = {
   id: 'discovery',
+  path: 'discovery',
   title: '发现',
   icon: 'fa fa-eye'
 };
