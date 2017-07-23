@@ -37,7 +37,7 @@ export default class AppBar extends PureComponent {
           <i className="logo-icon fa fa-bars" />
           <span>Airflow</span>
         </h1>
-        <h2 className="app-title">{appTitle}</h2> :
+        <h2 className="app-title">{appTitle}</h2>
       </div>
     );
   }

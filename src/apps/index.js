@@ -23,8 +23,8 @@ export function getApp(id) {
 export function getAppByPath(path) {
   const parts = path.split('/');
   if (parts.length >= 2) {
-    const app = apps.find(app => app.meta.path === parts[1]);
-    return app ? app : null;
+    const app = apps.find(a => a.meta.path === parts[1]);
+    return app || null;
   }
   return null;
 }
