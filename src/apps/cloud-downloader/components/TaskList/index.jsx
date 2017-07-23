@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import actions from '../../actions';
 import connect from '../../connect';
 
+import TaskListItem from './TaskListItem';
+
 import './index.less';
 
 @connect(
@@ -46,12 +48,7 @@ export default class TaskList extends Component {
         <ul>
           {
             tasks.map(task => (
-              <li
-                key={task.gid}
-                id={task.gid}
-              >
-                Task
-              </li>
+              <TaskListItem key={task.gid} task={task} />
             ))
           }
         </ul>
