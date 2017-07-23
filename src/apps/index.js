@@ -20,9 +20,27 @@ export function getApp(id) {
   }
 }
 
+export function getAppByPath(path) {
+  const parts = path.split('/');
+  if (parts.length >= 2) {
+    const app = apps.find(app => app.meta.path === parts[1]);
+    return app ? app : null;
+  }
+  return null;
+}
+
 export function getAppTitle(id) {
   const app = apps[id];
   return app.meta.title;
+}
+
+export function getAppTitleByPath(path) {
+  const app = getAppByPath(path);
+  if (app) {
+    return app.meta.title;
+  } else {
+    return null;
+  }
 }
 
 export function getAppMetaList() {
