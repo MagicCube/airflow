@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
-import React, { PureComponent } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 import actions from '../../actions';
 import connect from '../../connect';
@@ -12,7 +12,7 @@ import './index.less';
   state => ({ ...state }),
   dispatch => ({ actions: bindActionCreators(actions, dispatch) })
 )
-export default class App extends PureComponent {
+export default class App extends Component {
   render() {
     return (
       <div className="cd-app">
@@ -20,9 +20,11 @@ export default class App extends PureComponent {
           <NavList />
         </aside>
         <main className="cd-content">
-          <Route exact path="/cloud-downloader">
-            <Redirect to="/cloud-downloader/downloading" />
-          </Route>
+          <Switch>
+            <Route exact path="/cloud-downloader">
+              <Redirect to="/cloud-downloader/downloading" />
+            </Route>
+          </Switch>
         </main>
       </div>
     );

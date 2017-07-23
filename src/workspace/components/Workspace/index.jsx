@@ -17,10 +17,10 @@ export default class Workspace extends PureComponent {
             <AppNavList />
           </aside>
           <div className="af-workspace-content">
-            <Route exact path="/">
-              <Redirect to="/cloud-downloader" />
-            </Route>
             <Switch>
+              <Route exact path="/">
+                <Redirect to="/cloud-downloader" />
+              </Route>
               {
                 apps.map(app => (
                   <Route key={app.id} path={`/${app.meta.path}`} component={app.Component} />
