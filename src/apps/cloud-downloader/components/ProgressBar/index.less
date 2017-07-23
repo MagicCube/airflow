@@ -1,0 +1,30 @@
+@import '../../../../variables.less';
+
+.cd-progress-bar {
+  @height: 22px;
+
+  position: relative;
+  width: 200px;
+  height: @height;
+  border: 1px solid @blue500;
+  border-radius: 5px;
+  overflow: hidden;
+
+  .percentage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: @height;
+    line-height: @height - 2;
+    text-align: center;
+  }
+
+  .block {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: @height;
+    background: @blue100;
+  }
+}

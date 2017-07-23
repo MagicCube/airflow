@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import { getTaskName, getTotalLength } from '../../utils/task';
+import * as taskUtil from '../../utils/task';
+import ProgressBar from '../ProgressBar';
 
 export default class TaskListItem extends Component {
   static propTypes = {
@@ -12,16 +13,16 @@ export default class TaskListItem extends Component {
 
   render() {
     const { task } = this.props;
-    console.log(task);
     return (
-      <li id={task.gid} className="cd-task-list-item">
+      <li id={task.gid} className={`cd-task-list-item ${taskUtil.getStatus(task)}`}>
         <div className="icon">
-          <i className="fa fa-download" />
+          <i className={`fa ${taskUtil.getIcon(task)}`} />
         </div>
         <div className="info">
-          <div className="name">{getTaskName(task)}</div>
-          <div className="total-length">{getTotalLength(task)}</div>
+          <div className="name">{taskUtil.getName(task)}</div>
+          <div className="total-length">{taskUtil.getTotalLength(task)}</div>
         </div>
+        <ProgressBar completed={task.completedLength} total={task.totalLength} />
       </li>
     );
   }
