@@ -1,4 +1,5 @@
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
@@ -13,6 +14,16 @@ import './index.less';
   dispatch => ({ actions: bindActionCreators(actions, dispatch) })
 )
 export default class App extends Component {
+  static propTypes = {
+    actions: PropTypes.shape({
+      loadTasks: PropTypes.func
+    }).isRequired
+  }
+
+  componentDidMount() {
+    this.props.actions.loadTasks();
+  }
+
   render() {
     return (
       <div className="cd-app">
