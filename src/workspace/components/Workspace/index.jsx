@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
+import apps from '../../../apps';
 import AppBar from '../AppBar';
-import AppContainer from '../AppContainer';
 import AppNavList from '../AppNavList';
 
 import './index.less';
 
-export default class Workspace extends Component {
+export default class Workspace extends PureComponent {
   static propTypes = {
     selectedAppId: PropTypes.string,
     actions: PropTypes.shape({
@@ -30,10 +31,16 @@ export default class Workspace extends Component {
         <AppBar appId={selectedAppId} />
         <div className="af-workspace-body">
           <aside className="af-workspace-side-bar">
-            <AppNavList selectedId={selectedAppId} onSelectionChange={this.handleAppNavListSelectionChange} />
+            <AppNavList />
           </aside>
           <div className="af-workspace-content">
-            <AppContainer appId={selectedAppId} />
+            <Switch>
+              {
+                apps.map(app => (
+                  <Route key={app.id} path={`/${app.meta.path}`} component={app.Component} />
+                ))
+              }
+            </Switch>
           </div>
         </div>
       </div>
