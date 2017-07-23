@@ -12,12 +12,13 @@ module.exports = {
     index: ['./index.jsx']
   },
   output: {
-    path: path.join(__dirname, 'public'),
-    publicPath: '/',
-    filename: 'assets/[name].js'
+    path: path.join(__dirname, 'public/assets'),
+    publicPath: '/assets/',
+    filename: './[name].js'
   },
   devServer: {
-    contentBase: path.resolve('./public')
+    contentBase: path.resolve('./public/assets'),
+    publicPath: '/assets/'
   },
   module: {
     rules: [
@@ -41,20 +42,12 @@ module.exports = {
         loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader!less-loader' })
       },
       {
-        test: /\.html$/,
-        use: [
-          'file-loader?name=[name].html',
-          'extract-loader',
-          'html-loader?removeAttributeQuotes=false'
-        ]
-      },
-      {
         test: /\.(jpg|png)$/,
-        loader: 'url-loader?name=assets/images/[name].[ext]&limit=10240'
+        loader: 'url-loader?name=images/[name].[ext]&limit=10240'
       },
       {
         test: /\.(eot|svg|ttf|woff2?)$/,
-        loader: 'file-loader?name=assets/fonts/[name].[ext]'
+        loader: 'file-loader?name=fonts/[name].[ext]'
       }
     ]
   },
@@ -62,6 +55,6 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       names: 'vendor'
     }),
-    new ExtractTextPlugin('./assets/[name].css')
+    new ExtractTextPlugin('./[name].css')
   ]
 };
