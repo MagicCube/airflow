@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import connect from '../../connect';
+import NavList from '../NavList';
 
 import './index.less';
 
@@ -18,7 +19,7 @@ export default class App extends PureComponent {
     return (
       <div className="cd-app">
         <aside className="cd-side-bar">
-          SideBar
+          <NavList />
         </aside>
         <main className="cd-content">
           {name}

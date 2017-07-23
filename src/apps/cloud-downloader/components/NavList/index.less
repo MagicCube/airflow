@@ -1,0 +1,47 @@
+@import '../../../../variables.less';
+
+.cd-nav-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  h2 {
+    color: @gray-color;
+    font-size: @font-size-h4;
+    padding-left: 12px;
+    height: 42px;
+    line-height: 42px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding-left: 24px;
+      padding-right: 12px;
+      height: 36px;
+      line-height: 36px;
+      cursor: pointer;
+
+      &.selected {
+        color: @af-selection-text-color;
+        background: @af-selection-bg;
+      }
+
+      &:hover {
+        color: @af-selection-hover-text-color;
+        background: @af-selection-hover-bg;
+      }
+
+      i {
+        margin-right: 6px;
+      }
+    }
+  }
+}
