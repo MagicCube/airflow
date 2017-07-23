@@ -24,35 +24,40 @@
     li {
       position: relative;
       margin: 0;
-      padding-left: 24px;
-      padding-right: 12px;
       height: 36px;
       line-height: 36px;
       cursor: pointer;
 
-      &.selected::before {
-        content: '';
+      a {
         display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 8px;
-        height: 100%;
-        background: @af-list-selection-header-bg;
-      }
+        width: 100%;
+        padding-left: 24px;
 
-      &.selected, &.selected:hover {
-        color: @af-list-selection-text-color;
-        background: @af-list-selection-bg;
-      }
+        &.selected::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 8px;
+          height: 100%;
+          background: @af-list-selection-header-bg;
+        }
 
-      &:hover {
-        color: @af-list-hover-text-color;
-        background: @af-list-hover-bg;
-      }
+        &.selected,
+        &.selected:hover {
+          color: @af-list-selection-text-color;
+          background: @af-list-selection-bg;
+        }
 
-      i {
-        margin-right: 6px;
+        &:hover {
+          color: @af-list-hover-text-color;
+          background: @af-list-hover-bg;
+        }
+
+        i {
+          margin-right: 6px;
+        }
       }
     }
   }
