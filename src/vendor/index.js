@@ -1,3 +1,4 @@
+import 'axios';
 import 'babel-polyfill';
 import 'history';
 import 'prop-types';
