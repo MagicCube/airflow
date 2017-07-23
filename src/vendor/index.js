@@ -9,8 +9,6 @@ import 'react-router-redux';
 import 'redux';
 import 'redux-actions';
 import 'redux-promise';
-import 'request';
-import 'request-promise';
 
 import 'normalize.css';
 
