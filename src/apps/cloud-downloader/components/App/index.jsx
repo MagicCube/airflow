@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
-import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
+import { Redirect, Route } from 'react-router-dom';
 
 import actions from '../../actions';
 import connect from '../../connect';
@@ -13,26 +13,16 @@ import './index.less';
   dispatch => ({ actions: bindActionCreators(actions, dispatch) })
 )
 export default class App extends PureComponent {
-  static propTypes = {
-    selectedPath: PropTypes.string.isRequired,
-    actions: PropTypes.shape({
-      selectPath: PropTypes.func
-    }).isRequired
-  }
-
-  handleNavListSelectionChange = ({ path }) => {
-    this.props.actions.selectPath(path);
-  }
-
   render() {
-    const { selectedPath } = this.props;
     return (
       <div className="cd-app">
         <aside className="cd-side-bar">
-          <NavList selectedPath={selectedPath} onSelectionChange={this.handleNavListSelectionChange} />
+          <NavList />
         </aside>
         <main className="cd-content">
-          {name}
+          <Route exact path="/cloud-downloader">
+            <Redirect to="/cloud-downloader/downloading" />
+          </Route>
         </main>
       </div>
     );
