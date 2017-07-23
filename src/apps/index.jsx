@@ -1,10 +1,10 @@
 import React from 'react';
 
 import * as discovery from './discovery';
-import * as downloader from './downloader';
+import * as cloudDownloader from './cloud-downloader';
 import * as mediaLibrary from './media-library';
 
-export const apps = [discovery, downloader, mediaLibrary];
+export const apps = [discovery, cloudDownloader, mediaLibrary];
 apps.forEach((app) => {
   app.id = app.meta.id;
   apps[app.id] = app;

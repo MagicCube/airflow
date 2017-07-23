@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { getAppElement } from '../../../apps';
 
+import './index.less';
+
 export default class AppContainer extends Component {
   static propTypes = {
     appId: PropTypes.string,

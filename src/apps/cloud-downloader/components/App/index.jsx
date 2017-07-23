@@ -1,6 +1,13 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import connect from '../../connect';
+
+import './index.less';
+
+@connect(
+  state => ({ ...state })
+)
 export default class App extends PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired
@@ -9,8 +16,13 @@ export default class App extends PureComponent {
   render() {
     const { name } = this.props;
     return (
-      <div>
-        Hello, 这是{name}
+      <div className="cd-app">
+        <aside className="cd-side-bar">
+          SideBar
+        </aside>
+        <main className="cd-content">
+          {name}
+        </main>
       </div>
     );
   }

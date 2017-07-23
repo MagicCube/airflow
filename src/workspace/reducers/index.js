@@ -3,7 +3,7 @@ import { handleActions } from 'redux-actions';
 import actions from '../actions';
 
 const initialState = {
-  selectedAppId: 'downloader'
+  selectedAppId: 'cloudDownloader'
 };
 
 export default handleActions({
