@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
+import meta from '../../meta';
 import NavList from '../NavList';
 
 import './index.less';
@@ -14,8 +15,8 @@ export default class App extends Component {
         </aside>
         <main className="cd-content">
           <Switch>
-            <Route exact path="/cloud-downloader">
-              <Redirect to="/cloud-downloader/downloading" />
+            <Route exact path={meta.path}>
+              <Redirect to={`${meta.path}/downloading`} />
             </Route>
           </Switch>
         </main>

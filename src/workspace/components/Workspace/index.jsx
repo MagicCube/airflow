@@ -27,7 +27,7 @@ export default class Workspace extends PureComponent {
               </Route>
               {
                 apps.map(app => (
-                  <Route key={app.id} path={`/${app.meta.path}`} component={app.Component} />
+                  <Route key={app.id} path={`${app.meta.path}`} component={app.Component} />
                 ))
               }
             </Switch>

@@ -33,7 +33,7 @@ export default class AppNavList extends Component {
                 id={item.id}
                 title={item.title}
               >
-                <NavLink to={`/${item.path}/`} activeClassName="selected">
+                <NavLink to={`${item.path}/`} activeClassName="selected">
                   <i className={item.icon} />
                 </NavLink>
               </li>
