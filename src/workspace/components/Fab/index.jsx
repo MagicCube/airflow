@@ -7,7 +7,7 @@ import './index.less';
 export default class Fab extends Component {
   static propTypes = {
     icon: PropTypes.string,
-    title: PropTypes.title,
+    title: PropTypes.string,
     onClick: PropTypes.func
   }
 
