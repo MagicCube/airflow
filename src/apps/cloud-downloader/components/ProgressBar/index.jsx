@@ -12,7 +12,10 @@ export default class ProgressBar extends PureComponent {
 
   render() {
     const { completed, total } = this.props;
-    const percentage = `${(Math.round((completed / total) * 10000) / 100)}%`;
+    let percentage = '0%';
+    if (completed !== 0 && total !== 0) {
+      percentage = `${(Math.round((completed / total) * 10000) / 100)}%`;
+    }
     return (
       <div className={cn('cd-progress-bar', { completed: (percentage === '100%') })}>
         <div className="block" style={{ width: percentage }} />
