@@ -24,7 +24,7 @@ export default class TaskListItem extends Component {
           <div className="total-length">{`${taskUtil.isDownloading(task) ? `${taskUtil.getCompletedLength(task)} / ` : ''}`}{taskUtil.getTotalLength(task)}</div>
         </div>
         <ProgressBar completed={parseInt(task.completedLength, 0)} total={parseInt(task.totalLength, 0)} />
-        <div className="speed">{taskUtil.getDownloadSpeed(task)}</div>
+        <div className="download-speed">{taskUtil.getDownloadSpeed(task)}</div>
       </li>
     );
   }
