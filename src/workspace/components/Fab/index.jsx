@@ -7,18 +7,20 @@ import './index.less';
 export default class Fab extends Component {
   static propTypes = {
     icon: PropTypes.string,
+    title: PropTypes.title,
     onClick: PropTypes.func
   }
 
   static defaultProps = {
     icon: null,
+    title: null,
     onClick: noop
   }
 
   render() {
-    const { icon, onClick } = this.props;
+    const { icon, title, onClick } = this.props;
     return (
-      <a role="presentation" className="af-workspace-fab" onClick={onClick}>
+      <a role="presentation" className="af-workspace-fab" title={title} onClick={onClick}>
         <i className={cn('fa', icon)} />
       </a>
     );
