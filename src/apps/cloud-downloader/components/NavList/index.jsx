@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -33,7 +34,7 @@ export default class NavList extends Component {
                 id={item.path}
               >
                 <NavLink to={`/cloud-downloader/${item.path}`} activeClassName="selected">
-                  <i className={`fa ${item.icon}`} />
+                  <i className={cn('fa', item.icon)} />
                   <span>{item.text}</span>
                 </NavLink>
               </li>

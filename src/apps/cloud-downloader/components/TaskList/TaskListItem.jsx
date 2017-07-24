@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
@@ -14,15 +15,15 @@ export default class TaskListItem extends Component {
   render() {
     const { task } = this.props;
     return (
-      <li id={task.gid} className={`cd-task-list-item ${taskUtil.getStatus(task)}`}>
+      <li id={task.gid} className={cn('cd-task-list-item', taskUtil.getStatus(task))}>
         <div className="icon">
-          <i className={`fa ${taskUtil.getIcon(task)}`} />
+          <i className={cn('fa', taskUtil.getIcon(task))} />
         </div>
         <div className="info">
           <div className="name">{taskUtil.getName(task)}</div>
           <div className="total-length">{taskUtil.getTotalLength(task)}</div>
         </div>
-        <ProgressBar completed={task.completedLength} total={task.totalLength} />
+        <ProgressBar completed={parseInt(task.completedLength, 0)} total={parseInt(task.totalLength, 0)} />
       </li>
     );
   }
