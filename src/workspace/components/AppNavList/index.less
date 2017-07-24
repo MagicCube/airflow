@@ -14,14 +14,26 @@
     margin: 0;
 
     li {
-      cursor: pointer;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      font-size: @font-size-base * 1.5;
-      color: #888;
+      width: 100%;
+      text-align: center;
 
-      a.selected, a:hover {
+      a {
+        display: block;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: #888;
+        font-size: @font-size-base * 1.5;
+        cursor: pointer;
+      }
+
+      a.selected,
+      a:hover {
         color: #f0f0f0;
+      }
+
+      a.selected {
+        background: black;
       }
     }
   }
