@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
+import Dialog from '../../../../workspace/components/Dialog';
 import Fab from '../../../../workspace/components/Fab';
 import meta from '../../meta';
 import NavList from '../NavList';
@@ -25,6 +26,11 @@ export default class App extends Component {
             <Route path={`${meta.path}/:filter`} component={matchParams(TaskList)} />
           </Switch>
         </main>
+        <Switch>
+          <Route path={`${meta.path}/downloading/new`}>
+            <Dialog title="Henry" />
+          </Route>
+        </Switch>
       </div>
     );
   }
