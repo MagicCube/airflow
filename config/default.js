@@ -1,7 +1,8 @@
 module.exports = {
   aria2: {
-    host: '192.168.2.10',
+    host: 'magiccube.imwork.net',
     port: 6800,
+    secret: 'pi',
     path: '/jsonrpc'
   }
 };
