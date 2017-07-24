@@ -1,14 +1,18 @@
 import filesize from 'filesize';
 
-function isError(task) {
+export function isError(task) {
   return task.errorCode && parseInt(task.errorCode, 0);
 }
 
-function isDownloaded(task) {
+export function isDownloaded(task) {
   if (isError(task)) {
     return false;
   }
   return task.status === 'complete' || task.completedLength === task.totalLength;
+}
+
+export function isDownloading(task) {
+  return !isError(task) && !isDownloaded(task);
 }
 
 export function getName(task) {
@@ -52,6 +56,14 @@ export function getIcon(task) {
   }
 }
 
+export function getCompletedLength(task) {
+  return filesize(task.completedLength);
+}
+
 export function getTotalLength(task) {
   return filesize(task.totalLength);
+}
+
+export function getDownloadSpeed(task) {
+  return `${filesize(task.downloadSpeed)}/s`;
 }
