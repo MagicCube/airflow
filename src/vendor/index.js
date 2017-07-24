@@ -1,5 +1,6 @@
 import 'axios';
 import 'babel-polyfill';
+import 'classnames';
 import 'filesize';
 import 'history';
 import 'prop-types';
