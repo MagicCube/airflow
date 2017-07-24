@@ -1,19 +1,17 @@
 @import '../../../../variables.less';
 
 .cd-progress-bar {
-  @height: 22px;
+  @height: 6px;
 
   position: relative;
   width: 200px;
   height: @height;
-  border: 1px solid @blue500;
-  border-radius: 5px;
-  overflow: hidden;
+  background: @lightBlue200;
 
   .percentage {
     position: absolute;
     left: 0;
-    top: 0;
+    bottom: 10px;
     width: 100%;
     height: @height;
     line-height: @height - 2;
@@ -25,6 +23,6 @@
     left: 0;
     top: 0;
     height: @height;
-    background: @blue100;
+    background: @lightBlue800;
   }
 }
