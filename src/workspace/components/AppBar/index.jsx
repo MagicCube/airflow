@@ -15,15 +15,17 @@ export default class AppBar extends PureComponent {
   static propTypes = {
     location: PropTypes.shape({
       pathname: PropTypes.string
-    })
+    }),
+    rightNavigationBar: PropTypes.element
   }
 
   static defaultProps = {
-    location: null
+    location: null,
+    rightNavigationBar: null
   }
 
   render() {
-    const { location } = this.props;
+    const { location, rightNavigationBar } = this.props;
     let appTitle = null;
     if (location) {
       appTitle = getAppTitleByPath(location.pathname);
@@ -33,11 +35,17 @@ export default class AppBar extends PureComponent {
     }
     return (
       <div className="af-workspace-app-bar">
-        <h1 className="airflow-title">
-          <i className="logo-icon fa fa-bars" />
-          <span>Airflow</span>
-        </h1>
-        <h2 className="app-title">{appTitle}</h2>
+        <div className="titles">
+          <h1 className="airflow-title">
+            <i className="logo-icon fa fa-bars" />
+            <span>Airflow</span>
+          </h1>
+          <h2 className="app-title">{appTitle}</h2>
+        </div>
+
+        <nav className="right">
+          {rightNavigationBar}
+        </nav>
       </div>
     );
   }

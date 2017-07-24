@@ -3,10 +3,10 @@
 .af-workspace-app-bar {
   display: flex;
   position: absolute;
+  align-items: center;
   top: 0;
   left: 0;
   right: 0;
-  align-items: center;
   height: 50px;
   padding-left: 18px;
   padding-right: 18px;
@@ -15,17 +15,27 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   z-index: 1;
 
-  h1 {
-    font-size: @font-size-h3;
+  .titles {
+    display: flex;
+    height: 100%;
+    align-items: center;
 
-    .logo-icon {
-      width: @font-size-h3;
-      margin-right: 12px;
+    h1 {
+      font-size: @font-size-h3;
+
+      .logo-icon {
+        width: @font-size-h3;
+        margin-right: 12px;
+      }
+    }
+
+    .app-title {
+      margin-left: 12px;
+      font-size: @font-size-h4;
     }
   }
 
-  .app-title {
-    margin-left: 12px;
-    font-size: @font-size-h4;
+  > nav.right {
+    margin-left: auto;
   }
 }
