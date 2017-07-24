@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
+import Fab from '../../../../workspace/components/Fab';
 import meta from '../../meta';
 import NavList from '../NavList';
 import TaskList from '../TaskList';
@@ -12,6 +13,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="cd-app">
+        <Fab title="新建下载任务" icon="fa-plus" />
         <aside className="cd-side-bar">
           <NavList />
         </aside>
