@@ -1,6 +1,5 @@
-import { connect } from 'react-redux';
 import React, { PureComponent } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 
 import apps from '../../../apps';
 import AppBar from '../AppBar';
@@ -8,9 +7,7 @@ import AppNavList from '../AppNavList';
 
 import './index.less';
 
-@connect(
-  state => ({ router: state.router })
-)
+@withRouter
 export default class Workspace extends PureComponent {
   render() {
     return (

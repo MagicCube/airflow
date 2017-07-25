@@ -1,16 +1,12 @@
-import { connect } from 'react-redux';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import { getAppTitleByPath } from '../../../apps';
 
 import './index.less';
 
-@connect(
-  state => ({
-    location: state.router.location
-  })
-)
+@withRouter
 export default class AppBar extends PureComponent {
   static propTypes = {
     location: PropTypes.shape({
