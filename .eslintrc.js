@@ -22,7 +22,7 @@ module.exports = {
     "jsx-a11y/no-noninteractive-element-interactions": "off",
     "max-len": "warn",
     "no-else-return": "off",
-    "no-param-reassign": "warn",
+    "no-param-reassign": "off",
     "no-underscore-dangle": "off",
     "no-use-before-define": "off",
     "react/forbid-prop-types": "warn",
