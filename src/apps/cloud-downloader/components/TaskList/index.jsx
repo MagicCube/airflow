@@ -44,6 +44,19 @@ export default class TaskList extends Component {
     this.clearTimer();
   }
 
+  getFilterName() {
+    switch (this.props.filter) {
+      case 'downloading':
+        return '正在下载';
+      case 'downloaded':
+        return '已下载';
+      case 'error':
+        return '失败';
+      default:
+        return '';
+    }
+  }
+
   clearTimer() {
     if (this.timer) {
       clearTimeout(this.timer);
@@ -60,8 +73,13 @@ export default class TaskList extends Component {
 
   render() {
     const { tasks } = this.props;
+    let hint = null;
+    if (tasks.length === 0) {
+      hint = <div className="hint">没有正在{this.getFilterName()}任务</div>;
+    }
     return (
       <div className="cd-task-list">
+        {hint}
         <ul>
           {
             tasks.map(task => (
