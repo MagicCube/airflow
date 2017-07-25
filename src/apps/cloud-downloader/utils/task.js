@@ -1,4 +1,7 @@
 import filesize from 'filesize';
+import moment from 'moment';
+
+moment.locale('zh_CN');
 
 export function isError(task) {
   return task.errorCode && parseInt(task.errorCode, 0);
@@ -66,4 +69,14 @@ export function getTotalLength(task) {
 
 export function getDownloadSpeed(task) {
   return `${filesize(task.downloadSpeed)}/s`;
+}
+
+export function getRemainingTime(task) {
+  if (!isDownloading(task)) {
+    return '';
+  } else if (task.downloadSpeed === '0') {
+    return '';
+  } else {
+    return `剩余 ${moment.duration((task.completedLength / task.downloadSpeed) * 1000).humanize()}`;
+  }
 }
