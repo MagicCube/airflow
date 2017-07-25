@@ -31,7 +31,7 @@ export default class TaskList extends Component {
   }
 
   componentDidMount() {
-    this.props.actions.loadTasks(this.props.filter);
+    this.poll();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -40,6 +40,23 @@ export default class TaskList extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.clearTimer();
+  }
+
+  clearTimer() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+      this.timer = null;
+    }
+  }
+
+  poll() {
+    this.clearTimer();
+    const { filter } = this.props;
+    this.props.actions.loadTasks(filter);
+    this.timer = setTimeout(this.poll.bind(this), (filter === 'downloading' ? 3 : 10) * 1000);
+  }
 
   render() {
     const { tasks } = this.props;
