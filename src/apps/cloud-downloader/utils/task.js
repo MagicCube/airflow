@@ -22,7 +22,8 @@ export function getName(task) {
   if (task.bittorrent && task.bittorrent.info && task.bittorrent.info.name) {
     return task.bittorrent.info.name;
   } else if (task.files.length) {
-    return task.files[0].path;
+    const parts = task.files[0].path.split('/');
+    return parts[parts.length - 1];
   } else {
     return 'N/A';
   }
@@ -73,10 +74,10 @@ export function getDownloadSpeed(task) {
 
 export function getRemainingTime(task) {
   if (!isDownloading(task)) {
-    return '';
+    return null;
   } else if (task.downloadSpeed === '0') {
-    return '';
+    return '等待中';
   } else {
-    return `剩余 ${moment.duration((task.completedLength / task.downloadSpeed) * 1000).humanize()}`;
+    return `剩余 ${moment.duration(((task.totalLength - task.completedLength) / task.downloadSpeed) * 1000).humanize()}`;
   }
 }
