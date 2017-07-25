@@ -21,10 +21,16 @@ export default class TaskListItem extends Component {
         </div>
         <div className="info">
           <div className="name">{taskUtil.getName(task)}</div>
-          <div className="total-length">{`${taskUtil.isDownloading(task) ? `${taskUtil.getCompletedLength(task)} / ` : ''}`}{taskUtil.getTotalLength(task)}</div>
+          <div className="total-length">
+            {`${taskUtil.isDownloading(task) ? `${taskUtil.getCompletedLength(task)} / ` : ''}`}
+            {taskUtil.getTotalLength(task)}
+          </div>
         </div>
         <div className="progress">
-          <ProgressBar completed={parseInt(task.completedLength, 0)} total={parseInt(task.totalLength, 0)} />
+          <ProgressBar
+            completed={parseInt(task.completedLength, 0)}
+            total={parseInt(task.totalLength, 0)}
+          />
           <div className="remaining-time">{taskUtil.getRemainingTime(task)}</div>
         </div>
         <div className="download-speed">{taskUtil.getDownloadSpeed(task)}</div>
