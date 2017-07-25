@@ -11,7 +11,7 @@ module.exports = {
     "import"
   ],
   rules: {
-    "class-methods-use-this": "off",
+    "class-methods-use-this": "warn",
     "comma-dangle": "off",
     "global-require": "off",
     "import/no-dynamic-require": "off",
@@ -20,12 +20,13 @@ module.exports = {
     "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
     "jsx-a11y/href-no-hash": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
-    "max-len": "off",
+    "max-len": "warn",
     "no-else-return": "off",
-    "no-param-reassign": "off",
+    "no-param-reassign": "warn",
     "no-underscore-dangle": "off",
     "no-use-before-define": "off",
+    "react/forbid-prop-types": "warn",
     "react/prefer-stateless-function": "off",
-    "react/forbid-prop-types": "off"
+    "react/prop-types": "warn"
   }
 };
