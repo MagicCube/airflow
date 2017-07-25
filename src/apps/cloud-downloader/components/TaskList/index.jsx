@@ -75,7 +75,7 @@ export default class TaskList extends Component {
     const { tasks } = this.props;
     let hint = null;
     if (tasks.length === 0) {
-      hint = <div className="hint">没有正在{this.getFilterName()}任务</div>;
+      hint = <div className="hint">没有正在{this.getFilterName()}的任务</div>;
     }
     return (
       <div className="cd-task-list">
