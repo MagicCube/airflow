@@ -24,7 +24,19 @@
       height: 75px;
       border-bottom: @border;
       font-size: @font-size-small;
-      cursor: pointer;
+      cursor: default;
+
+      &.paused .cd-progress-bar {
+        background-color: #fff176;
+
+        .block {
+          background-color: #f9a825;
+        }
+      }
+
+      &.completed .cd-progress-bar .block {
+        background-color: #689f38;
+      }
 
       .icon {
         font-size: @font-size-h4;
@@ -47,10 +59,15 @@
       }
 
       .progress {
-        padding-top: 5px;
+        padding-top: 15px;
         display: flex;
         flex-direction: column;
         margin-left: 8px;
+
+        .remaining-time {
+          margin-top: 4px;
+          text-align: center;
+        }
       }
 
       .download-speed {
