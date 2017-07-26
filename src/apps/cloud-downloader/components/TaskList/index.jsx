@@ -51,7 +51,7 @@ export default class TaskList extends Component {
       case 'downloaded':
         return '已下载';
       case 'error':
-        return '失败';
+        return '下载失败';
       default:
         return '';
     }
@@ -75,7 +75,7 @@ export default class TaskList extends Component {
     const { tasks } = this.props;
     let hint = null;
     if (tasks.length === 0) {
-      hint = <div className="hint">没有正在{this.getFilterName()}的任务</div>;
+      hint = <div className="hint">没有{this.getFilterName()}的任务</div>;
     }
     return (
       <div className="cd-task-list">
