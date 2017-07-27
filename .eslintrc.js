@@ -18,9 +18,11 @@ module.exports = {
     "import/prefer-default-export": "off",
     "jsx-a11y/href-no-hash": "off",
     "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
-    "max-len": "off",
+    "max-len": "warn",
+    "no-else-return": "off",
     "no-underscore-dangle": "off",
+    "no-param-reassign": "off",
     "react/prefer-stateless-function": "off",
-    "react/forbid-prop-types": "off"
+    "react/forbid-prop-types": "warn"
   }
 };
