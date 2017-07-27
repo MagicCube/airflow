@@ -11,22 +11,16 @@ module.exports = {
     "import"
   ],
   rules: {
-    "class-methods-use-this": "warn",
+    "class-methods-use-this": "off",
     "comma-dangle": "off",
     "global-require": "off",
-    "import/no-dynamic-require": "off",
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
-    "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
     "jsx-a11y/href-no-hash": "off",
-    "jsx-a11y/no-noninteractive-element-interactions": "off",
-    "max-len": "warn",
-    "no-else-return": "off",
-    "no-param-reassign": "off",
+    "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
+    "max-len": "off",
     "no-underscore-dangle": "off",
-    "no-use-before-define": "off",
-    "react/forbid-prop-types": "warn",
     "react/prefer-stateless-function": "off",
-    "react/prop-types": "warn"
+    "react/forbid-prop-types": "off"
   }
 };
