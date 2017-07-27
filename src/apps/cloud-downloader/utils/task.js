@@ -24,9 +24,8 @@ export function getName(task) {
   } else if (task.files.length) {
     const parts = task.files[0].path.split('/');
     return parts[parts.length - 1];
-  } else {
-    return 'N/A';
   }
+  return 'N/A';
 }
 
 export function getStatus(task) {
@@ -36,9 +35,8 @@ export function getStatus(task) {
     return 'downloaded';
   } else if (task.status === 'active') {
     return 'downloading';
-  } else {
-    return task.status;
   }
+  return task.status;
 }
 
 export function getIcon(task) {
@@ -77,7 +75,6 @@ export function getRemainingTime(task) {
     return null;
   } else if (task.downloadSpeed === '0') {
     return '等待中';
-  } else {
-    return `剩余 ${moment.duration(((task.totalLength - task.completedLength) / task.downloadSpeed) * 1000).humanize()}`;
   }
+  return `剩余 ${moment.duration(((task.totalLength - task.completedLength) / task.downloadSpeed) * 1000).humanize()}`;
 }
