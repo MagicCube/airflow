@@ -1,7 +1,7 @@
+import { push } from 'react-router-redux';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import { push } from 'react-router-redux';
 
 import connect from '../../connect';
 import Dialog from '../../../../workspace/components/Dialog';

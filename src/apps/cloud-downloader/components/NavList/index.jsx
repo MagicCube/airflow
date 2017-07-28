@@ -1,5 +1,5 @@
-import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 

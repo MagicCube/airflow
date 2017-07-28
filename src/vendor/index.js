@@ -5,14 +5,14 @@ import 'filesize';
 import 'history';
 import 'moment';
 import 'prop-types';
-import 'react';
 import 'react-dom';
 import 'react-redux';
 import 'react-router-dom';
 import 'react-router-redux';
-import 'redux';
+import 'react';
 import 'redux-actions';
 import 'redux-promise';
+import 'redux';
 
 import 'normalize.css';
 

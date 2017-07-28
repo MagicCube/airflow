@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
+import React, { PureComponent } from 'react';
 
 import apps from '../../../apps';
 import AppBar from '../AppBar';
