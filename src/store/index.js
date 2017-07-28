@@ -1,5 +1,5 @@
 import { routerMiddleware } from 'react-router-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import promiseMiddleware from 'redux-promise';
 
 import history from '../history';
@@ -7,7 +7,7 @@ import reducer from './reducer';
 
 const DEV_MODE = process.env.NODE_ENV !== 'production';
 
-export function configStore() {
+export function configStore(initialState) {
   const historyRouterMiddleware = routerMiddleware(history);
 
   let composeEnhancers = null;
@@ -21,7 +21,7 @@ export function configStore() {
 
   const store = createStore(
     reducer,
-    undefined,
+    initialState,
     composeEnhancers(
       applyMiddleware(
         historyRouterMiddleware,
