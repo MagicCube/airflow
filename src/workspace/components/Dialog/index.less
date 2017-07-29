@@ -18,6 +18,7 @@
   flex-direction: column;
   background: white;
   box-shadow: 0 0 36px rgba(0, 0, 0, 0.2);
+  position: relative;
 
   > header {
     display: flex;
@@ -28,6 +29,21 @@
     background: @af-dialog-header-bg;
     padding-left: 18px;
     padding-right: 18px;
+
+    > .close-button {
+      cursor: pointer;
+      color: white;
+      margin-left: auto;
+      width: 22px;
+      height: 22px;
+      line-height: 20px;
+      text-align: center;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
   }
 
   > main {
