@@ -1,10 +1,10 @@
-import { push } from 'react-router-redux';
+import { replace } from 'react-router-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 import connect from '../../connect';
-import Dialog from '../../../../workspace/components/Dialog';
+import NewTaskDialog from '../../components/NewTaskDialog';
 import Fab from '../../../../workspace/components/Fab';
 import meta from '../../meta';
 import NavList from '../NavList';
@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   handleFabClick = () => {
-    this.props.dispatch(push(`${meta.path}/downloading/new`));
+    this.props.dispatch(replace(`${meta.path}/downloading/new`));
   }
 
   render() {
@@ -51,7 +51,7 @@ class App extends Component {
         </main>
         <Switch>
           <Route path={`${meta.path}/downloading/new`}>
-            <Dialog title="Henry" />
+            <NewTaskDialog />
           </Route>
         </Switch>
       </div>
