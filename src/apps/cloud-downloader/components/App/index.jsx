@@ -34,6 +34,10 @@ class App extends Component {
     this.props.dispatch(replace(`${meta.path}/downloading/new`));
   }
 
+  handleNewTaskDialogSubmit = ({ uri, path }) => {
+    console.log(uri, path);
+  }
+
   render() {
     return (
       <div className="cd-app">
@@ -51,7 +55,7 @@ class App extends Component {
         </main>
         <Switch>
           <Route path={`${meta.path}/downloading/new`}>
-            <NewTaskDialog />
+            <NewTaskDialog onSubmit={this.handleNewTaskDialogSubmit} />
           </Route>
         </Switch>
       </div>
