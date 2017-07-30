@@ -53,7 +53,7 @@ export default class App extends Component {
     try {
       await this.props.actions.createTask(task);
     } catch (e) {
-      console.error(e);
+      // We will handle this error in general error handler.
     }
     this.props.dispatch(replace(`${meta.path}/downloading`));
   }
