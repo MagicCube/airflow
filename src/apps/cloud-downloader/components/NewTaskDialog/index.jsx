@@ -1,16 +1,12 @@
-import { replace } from 'react-router-redux';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
-import connect from '../../connect';
 import Dialog from '../../../../workspace/components/Dialog';
 
 import './index.less';
 
-@connect()
 export default class NewTaskDialog extends PureComponent {
   static propTypes = {
-    dispatch: PropTypes.func.isRequired,
     onSubmit: PropTypes.func
   }
 
@@ -47,7 +43,7 @@ export default class NewTaskDialog extends PureComponent {
   }
 
   handleCloseButtonClick = () => {
-    this.props.dispatch(replace('../'));
+
   }
 
   render() {
