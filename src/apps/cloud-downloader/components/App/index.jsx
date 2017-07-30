@@ -50,7 +50,11 @@ export default class App extends Component {
         dir: path
       }
     };
-    await this.props.actions.createTask(task);
+    try {
+      await this.props.actions.createTask(task);
+    } catch (e) {
+      console.error(e);
+    }
     this.props.dispatch(replace(`${meta.path}/downloading`));
   }
 
