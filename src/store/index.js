@@ -1,11 +1,11 @@
 import { createStore } from 'redux';
 
-import reducer from './reducer';
+import reducers from '../reducers';
 import enhancer from './enhancer';
 
 export function configStore(initialState) {
   const store = createStore(
-    reducer,
+    reducers,
     initialState,
     enhancer
   );
