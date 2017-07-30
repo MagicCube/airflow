@@ -10,7 +10,12 @@ import './index.less';
 @connect()
 export default class NewTaskDialog extends PureComponent {
   static propTypes = {
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func
+  }
+
+  static defaultProps = {
+    onSubmit: noop
   }
 
   constructor(...args) {
@@ -35,6 +40,10 @@ export default class NewTaskDialog extends PureComponent {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
+    this.props.onSubmit({
+      uri: this.state.uri,
+      path: this.state.path
+    });
   }
 
   handleCloseButtonClick = () => {
@@ -86,4 +95,9 @@ export default class NewTaskDialog extends PureComponent {
       </Dialog>
     );
   }
+}
+
+
+function noop() {
+
 }
