@@ -7,11 +7,13 @@ import './index.less';
 
 export default class NewTaskDialog extends PureComponent {
   static propTypes = {
-    onSubmit: PropTypes.func
+    onSubmit: PropTypes.func,
+    onCloseButtonClick: PropTypes.func
   }
 
   static defaultProps = {
-    onSubmit: noop
+    onSubmit: noop,
+    onCloseButtonClick: noop
   }
 
   constructor(...args) {
@@ -42,10 +44,6 @@ export default class NewTaskDialog extends PureComponent {
     });
   }
 
-  handleCloseButtonClick = () => {
-
-  }
-
   render() {
     return (
       <Dialog
@@ -53,7 +51,7 @@ export default class NewTaskDialog extends PureComponent {
         className="cd-new-task-dialog"
         width={680}
         height={320}
-        onCloseButtonClick={this.handleCloseButtonClick}
+        onCloseButtonClick={this.props.onCloseButtonClick}
       >
         <form onSubmit={this.handleFormSubmit}>
           <div className="control-group">
@@ -63,6 +61,7 @@ export default class NewTaskDialog extends PureComponent {
                 type="text"
                 id="uri"
                 className="input"
+                autoComplete="off"
                 placeholder="HTTP, HTTPS, FTP 或者磁力链接地址"
                 value={this.state.uri}
                 onChange={this.handleUriChange}
@@ -77,6 +76,7 @@ export default class NewTaskDialog extends PureComponent {
                 type="text"
                 id="path"
                 className="input"
+                autoComplete="on"
                 placeholder="相对或绝对路径"
                 value={this.state.path}
                 onChange={this.handlePathChange}
