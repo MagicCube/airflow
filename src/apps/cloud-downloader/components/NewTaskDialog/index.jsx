@@ -15,14 +15,16 @@ export default class NewTaskDialog extends PureComponent {
 
   constructor(...args) {
     super(...args);
-    this.clearInputs();
-  }
-
-  clearInputs() {
     this.state = {
       uri: '',
       path: '/media/pi/HENRY-2TB/@mv'
     };
+  }
+
+  clearUri() {
+    this.setState({
+      uri: ''
+    });
   }
 
   handleUriChange = (e) => {
@@ -42,7 +44,7 @@ export default class NewTaskDialog extends PureComponent {
   }
 
   handleCloseButtonClick = () => {
-    this.clearInputs();
+    this.clearUri();
     this.props.dispatch(replace('../'));
   }
 
