@@ -43,14 +43,15 @@ export default class App extends Component {
     this.props.dispatch(replace(`${meta.path}/downloading/new`));
   }
 
-  handleNewTaskDialogSubmit = ({ uri, path }) => {
+  handleNewTaskDialogSubmit = async ({ uri, path }) => {
     const task = {
       uris: [uri],
       options: {
         dir: path
       }
     };
-    this.props.actions.createTask(task);
+    await this.props.actions.createTask(task);
+    this.props.dispatch(replace(`${meta.path}/downloading`));
   }
 
   handleNewTaskDialogCloseButtonClick = () => {
