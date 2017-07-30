@@ -24,6 +24,7 @@ module.exports = {
     "no-else-return": "off",
     "no-param-reassign": "off",
     "no-underscore-dangle": "off",
+    "no-unused-vars": "warn",
     "react/forbid-prop-types": "warn",
     "react/prefer-stateless-function": "off",
     "react/no-unused-prop-types": "warn"
