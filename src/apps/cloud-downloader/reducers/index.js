@@ -20,5 +20,18 @@ export default handleActions({
         error: payload
       };
     }
+  },
+
+  [actions.createTask](state, { error, payload }) {
+    if (!error) {
+      return {
+        ...state
+      };
+    } else {
+      return {
+        ...state,
+        error: payload
+      };
+    }
   }
 }, initialState);
