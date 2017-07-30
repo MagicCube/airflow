@@ -25,7 +25,8 @@ function matchParams(WrappedComponent) {
   return Hoc;
 }
 
-class App extends Component {
+@connect()
+export default class App extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired
   }
@@ -62,5 +63,3 @@ class App extends Component {
     );
   }
 }
-
-export default connect(state => ({ router: state.router }))(App);
