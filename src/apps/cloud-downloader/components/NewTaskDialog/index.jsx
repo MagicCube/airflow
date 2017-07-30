@@ -21,12 +21,6 @@ export default class NewTaskDialog extends PureComponent {
     };
   }
 
-  clearUri() {
-    this.setState({
-      uri: ''
-    });
-  }
-
   handleUriChange = (e) => {
     this.setState({
       uri: e.target.value
@@ -44,7 +38,6 @@ export default class NewTaskDialog extends PureComponent {
   }
 
   handleCloseButtonClick = () => {
-    this.clearUri();
     this.props.dispatch(replace('../'));
   }
 
