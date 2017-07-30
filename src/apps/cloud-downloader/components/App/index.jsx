@@ -1,8 +1,10 @@
 import { replace } from 'react-router-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
+import actions from '../../actions';
 import connect from '../../connect';
 import NewTaskDialog from '../../components/NewTaskDialog';
 import Fab from '../../../../workspace/components/Fab';
@@ -25,9 +27,15 @@ function matchParams(WrappedComponent) {
   return Hoc;
 }
 
-@connect()
+@connect(
+  () => ({}),
+  dispatch => ({ actions: bindActionCreators(actions, dispatch), dispatch })
+)
 export default class App extends Component {
   static propTypes = {
+    actions: PropTypes.shape({
+      createTask: PropTypes.func
+    }).isRequired,
     dispatch: PropTypes.func.isRequired
   }
 
@@ -36,7 +44,17 @@ export default class App extends Component {
   }
 
   handleNewTaskDialogSubmit = ({ uri, path }) => {
-    console.log(uri, path);
+    const task = {
+      uris: [uri],
+      options: {
+        dir: path
+      }
+    };
+    this.props.actions.createTask(task);
+  }
+
+  handleNewTaskDialogCloseButtonClick = () => {
+    this.props.dispatch(replace(`${meta.path}/downloading`));
   }
 
   render() {
@@ -56,7 +74,10 @@ export default class App extends Component {
         </main>
         <Switch>
           <Route path={`${meta.path}/downloading/new`}>
-            <NewTaskDialog onSubmit={this.handleNewTaskDialogSubmit} />
+            <NewTaskDialog
+              onSubmit={this.handleNewTaskDialogSubmit}
+              onCloseButtonClick={this.handleNewTaskDialogCloseButtonClick}
+            />
           </Route>
         </Switch>
       </div>
